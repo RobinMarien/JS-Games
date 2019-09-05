@@ -1,6 +1,12 @@
-document.getElementById("pscore").innerHTML = window.localStorage.getItem('player_score');
-document.getElementById("cscore").innerHTML = window.localStorage.getItem('computer_score');
+document.getElementById("pscore").innerText = window.localStorage.getItem('player_score');
+document.getElementById("cscore").innerText = window.localStorage.getItem('computer_score');
 
+if (window.localStorage.getItem("player_score") == undefined || window.localStorage.getItem("player_score") == "{}"){
+    document.getElementById("pscore").innerText = "0";
+};
+if (window.localStorage.getItem("computer_score") == undefined || window.localStorage.getItem("computer_score") == "{}"){
+    document.getElementById("cscore").innerText = "0";
+};
 
 var weapons = document.getElementById("buttongroup").querySelectorAll("button");
 
@@ -20,7 +26,6 @@ weapons.forEach((weapon) => {
         if (comp < 0.30){
             comp = "rock";
             compImg.setAttribute("class", "imgflip");
-            compImg
         }
         else if (comp < 0.60) {
             comp = "paper";
@@ -40,7 +45,7 @@ weapons.forEach((weapon) => {
         console.log(comp);
 
         if(choice == comp){
-            result.innerText = "It's a Draw"
+            result.innerText = "It's a Draw!"
         }
         else if (choice == "rock" && comp == "scissors"){
             result.innerText = "The computer chose Scissors!\nYou win!";
@@ -73,18 +78,17 @@ weapons.forEach((weapon) => {
             document.getElementById("cscore").innerText= cscore;
         }
         else{
-            result.innerText = "Aww shit, the computer chose THE Rock!!!\nYou can't beat him.. and he demands 3 points";
+            result.innerText = "Aww shit, the computer chose THE Rock!!!\nYou can't beat him.. and he demands 3 points!";
             pscore -= 3;
             cscore += 3;
             document.getElementById("pscore").innerText= pscore;
             document.getElementById("cscore").innerText= cscore;
         }
 
-        if (pscore < 0){
+        if (pscore <= 0){
             pscore = 0;
             document.getElementById("pscore").innerText= pscore;
         }
-
         window.localStorage.setItem('computer_score', JSON.stringify(cscore));
         window.localStorage.setItem('player_score', JSON.stringify(pscore));
     });
@@ -93,4 +97,7 @@ weapons.forEach((weapon) => {
 document.getElementById("reset").addEventListener("click", function(){
     document.getElementById("pscore").innerHTML = "0";
     document.getElementById("cscore").innerHTML = "0";
-})
+    window.localStorage.setItem('computer_score', JSON.stringify(cscore));
+    window.localStorage.setItem('player_score', JSON.stringify(pscore));
+
+});
