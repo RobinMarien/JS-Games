@@ -2,7 +2,10 @@ body{
     font-family: 'Press Start 2P', cursive;
     background-size: cover;
     background-image: url(../img/bg1.png);
-    background-position: right 10px top -55px;
+    animation: move 5s linear infinite;
+    background-repeat: repeat-x;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .container{
@@ -50,4 +53,13 @@ button{
 
 #reset{
     margin-top: 20px;
+}
+
+@keyframes move {
+    from {
+        background-position: 0 100%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
 }
