@@ -1,3 +1,4 @@
+// ARRAYS
 var A = 11;
 var J = Q = K = 10;
 
@@ -60,6 +61,26 @@ var cardImg = [
             "img/blackjack/spadesqueen.png",
             "img/blackjack/spadesking.png"];
 
+//  SET STARTING CARDS
+
+var random1 = Math.floor(Math.random()* (card.length));
+var random2 = Math.floor(Math.random()* (card.length));
+var random3 = Math.floor(Math.random()* (card.length));
+
+document.getElementById("card-one").src = cardImg[random1];
+document.getElementById("card-two").src = cardImg[random2];
+document.getElementById("dcard-one").src = cardImg[random3];
+
+var pscore = Number(document.getElementById("pscore").innerText);
+pscore = card[random1]+card[random2];
+document.getElementById("pscore").innerText = pscore;
+
+var dscore = Number(document.getElementById("dscore").innerText);
+dscore = card[random3];
+document.getElementById("dscore").innerText = dscore;
+
+//  HIT BUTTON
+
 document.getElementById("hit").addEventListener("click", function(){
     var random = Math.floor(Math.random()* (card.length));
 
@@ -67,11 +88,43 @@ document.getElementById("hit").addEventListener("click", function(){
     console.log(card[random]);
     console.log (cardImg[random]);
 
-    var score = Number(document.getElementById("pscore").innerText);
+    var pscore = Number(document.getElementById("pscore").innerText);
 
-    score = score+card[random];
-    document.getElementById("pscore").innerText = score;
+    pscore = pscore+card[random];
+
+    document.getElementById("pscore").innerText = pscore;
     document.getElementById("card-one").src = cardImg[random];
 
+    if (pscore > 21){
+        document.getElementById("result").innerText = "You lost!";
+        document.getElementById("hit").style.display = "none";
+        document.getElementById("stand").style.display = "none";
+        document.getElementById("reset").style.display = "inline";
+    }
 
+    if (pscore == 21){
+        document.getElementById("result").innerText = "Blackjack!!! You won!";
+        document.getElementById("hit").style.display = "none";
+        document.getElementById("stand").style.display = "none";
+        document.getElementById("reset").style.display = "inline";
+    }
+});
+
+// STAND BUTTON
+
+document.getElementById("stand").addEventListener("click", function(){
+    document.getElementById("hit").style.display = "none";
+    document.getElementById("stand").style.display = "none";
+
+    var random = Math.floor(Math.random()* (card.length));
+
+    var dscore = Number(document.getElementById("dscore").innerText);
+
+    dscore = dscore + card[random];
+    document.getElementById("dscore").innerText = dscore;
+
+});
+
+document.getElementById("reset").addEventListener("click", function(){
+    location.reload();
 });
