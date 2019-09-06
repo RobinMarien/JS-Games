@@ -21,7 +21,7 @@ weapons.forEach((weapon) => {
         var pscore = parseInt(document.getElementById("pscore").innerHTML,10);
         var cscore = parseInt(document.getElementById("cscore").innerHTML,10)
 
-        playerImg.setAttribute("src", "./img/"+choice+".png");
+        playerImg.setAttribute("src", "./img/rock/"+choice+".png");
 
         if (comp < 0.30){
             comp = "rock";
@@ -40,7 +40,7 @@ weapons.forEach((weapon) => {
             compImg.removeAttribute("class");
         }
 
-        compImg.setAttribute("src", "./img/"+comp+".png");
+        compImg.setAttribute("src", "./img/rock/"+comp+".png");
 
         console.log(comp);
 

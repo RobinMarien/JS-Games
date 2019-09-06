@@ -8,7 +8,7 @@ main{
     height: 100%;
     font-family: 'Press Start 2P', cursive;
     background-size: cover;
-    background-image: url(../img/bg1.png);
+    background-image: url(../img/background/bg1.png);
     animation: move 30s linear infinite;
     /*background-repeat: repeat-x;*/
     min-height: 100vh;
