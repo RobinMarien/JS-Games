@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content='Find the matching cards in this memory game'>
+    <meta name="keywords" content="Memory game, game, javascript">
+    <meta name="author" content="Robin Mariën">
+    <title>Memory Game</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style_memory.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+    <body class="text-center">
+        <main>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 scoreboard" >
+                        <p>Player Score: </p>
+                        <p id="pscore" class="score">0</p>
+                    </div>
+                    <div class="col-md-3 play">
+
+                    </div>
+                    <div class="col-md-3 play">
+
+                    </div>
+                    <div class="col-md-3 scoreboard">
+                        <p>Computer Score: </p>
+                        <p id="cscore" class="score">0</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <p id="result" class="col-md-12"></p>
+                </div>
+
+                <div class="row">
+                    <span class="col-md-4"></span>
+                    <span class="col-md-4" id="buttongroup">
+                        <button id="rock">ROCK</button>
+                        <button id="paper">PAPER</button>
+                        <button id="scissors">SCISSORS</button>
+                    </span>
+                    <span class="col-md-4"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button id="reset">RESET SCORES</button>
+                    </div>
+                </div>
+            </div>
+            <script src="./js/script_memory.js"></script>
+        </main>
+    </body>
+</html>
