@@ -33,13 +33,18 @@ button{
 }
 
 .options{
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 #reset{
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     display: none;
 }
+
+img{
+    height: 175px;
+}
+
 
 
 

@@ -1,9 +1,13 @@
+var A = 11;
+var J = Q = K = 10;
+
 var card = [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K,
             A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K,
             A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K,
             A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K];
 
-var cardImg = ["img/blackjack/clubs1",
+var cardImg = [
+            "img/blackjack/clubs1",
             "img/blackjack/clubs2",
             "img/blackjack/clubs3",
             "img/blackjack/clubs4",
@@ -56,3 +60,11 @@ var cardImg = ["img/blackjack/clubs1",
             "img/blackjack/spadesqueen",
             "img/blackjack/spadesking"];
 
+document.getElementById("hit").addEventListener("click", function(){
+    var random = Math.floor(Math.random()* (card.length+1));
+    console.log(random);
+    console.log(card[random]);
+    console.log (cardImg[random]);
+
+    
+})
