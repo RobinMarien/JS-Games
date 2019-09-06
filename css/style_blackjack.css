@@ -15,14 +15,33 @@ main{
     width: 100%;
 }
 
-button{
-    font-size: 15px;
-    margin-top: 10px;
+@keyframes move {
+    from {
+        background-position: 100vw 100%;
+    }
+    to {
+        background-position: 1vw 100%;
+    }
 }
 
 .container{
     padding-top: 60px;
 }
+
+button{
+    font-size: 15px;
+}
+
+.options{
+    margin-bottom: 50px;
+}
+
+#reset{
+    margin-bottom: 50px;
+    display: none;
+}
+
+
 
 .play{
     min-height: 320px;
@@ -37,9 +56,6 @@ button{
     font-size: 130px;
 }
 
-img{
-    margin: auto;
-}
 h1{
     margin-top: 30px;
     margin-bottom: 25px;
@@ -52,15 +68,4 @@ p{
 #result{
     margin-top: 5px;
     font-size: 20px;
-}
-
-
-
-@keyframes move {
-    from {
-        background-position: 100vw 100%;
-    }
-    to {
-        background-position: 1vw 100%;
-    }
 }
