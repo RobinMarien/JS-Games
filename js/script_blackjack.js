@@ -88,12 +88,16 @@ document.getElementById("hit").addEventListener("click", function(){
     console.log(card[random]);
     console.log (cardImg[random]);
 
-    var pscore = Number(document.getElementById("pscore").innerText);
+    var img = document.createElement("img");
+    img.src = cardImg[random];
+    var pcards = document.getElementById("pcards");
+    pcards.appendChild(img);
 
+
+    var pscore = Number(document.getElementById("pscore").innerText);
     pscore = pscore+card[random];
 
     document.getElementById("pscore").innerText = pscore;
-    document.getElementById("card-one").src = cardImg[random];
 
     if (pscore > 21){
         document.getElementById("result").innerText = "You lost!";
