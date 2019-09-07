@@ -75,6 +75,13 @@ var pscore = Number(document.getElementById("pscore").innerText);
 pscore = card[random1]+card[random2];
 document.getElementById("pscore").innerText = pscore;
 
+if (pscore == 21){
+    document.getElementById("result").innerText = "Blackjack!!! You won!";
+    document.getElementById("hit").style.display = "none";
+    document.getElementById("stand").style.display = "none";
+    document.getElementById("reset").style.display = "inline";
+}
+
 var dscore = Number(document.getElementById("dscore").innerText);
 dscore = card[random3];
 document.getElementById("dscore").innerText = dscore;
@@ -99,15 +106,15 @@ document.getElementById("hit").addEventListener("click", function(){
 
     document.getElementById("pscore").innerText = pscore;
 
-    if (pscore > 21){
-        document.getElementById("result").innerText = "You lost!";
+    if (pscore == 21){
+        document.getElementById("result").innerText = "Blackjack!!! You won!";
         document.getElementById("hit").style.display = "none";
         document.getElementById("stand").style.display = "none";
         document.getElementById("reset").style.display = "inline";
     }
 
-    if (pscore == 21){
-        document.getElementById("result").innerText = "Blackjack!!! You won!";
+    else if (pscore > 21){
+        document.getElementById("result").innerText = "You lost!";
         document.getElementById("hit").style.display = "none";
         document.getElementById("stand").style.display = "none";
         document.getElementById("reset").style.display = "inline";
@@ -119,14 +126,39 @@ document.getElementById("hit").addEventListener("click", function(){
 document.getElementById("stand").addEventListener("click", function(){
     document.getElementById("hit").style.display = "none";
     document.getElementById("stand").style.display = "none";
+    document.getElementById("reset").style.display = "inline";
 
     var random = Math.floor(Math.random()* (card.length));
 
+    document.getElementById("dcard-two").src = cardImg[random];
     var dscore = Number(document.getElementById("dscore").innerText);
+    var pscore = Number(document.getElementById("pscore").innerText);
 
     dscore = dscore + card[random];
     document.getElementById("dscore").innerText = dscore;
 
+    if (dscore < 17){
+        do{
+            var img = document.createElement("img");
+            img.src = cardImg[random];
+            var pcards = document.getElementById("dcards");
+            pcards.appendChild(img);
+
+            dscore = dscore + card[random];
+            document.getElementById("dscore").innerText = dscore;
+        }
+        while(dscore <= 17);
+    }
+
+    if (pscore > dscore && dscore < 21){
+        document.getElementById("result").innerText = "You won!";
+    }
+    else if (pscore == dscore && dscore <= 21){
+        document.getElementById("result").innerText = "It's a draw";
+    }
+    else {
+        document.getElementById("result").innerText = "You lost!";
+    }
 });
 
 document.getElementById("reset").addEventListener("click", function(){
