@@ -139,6 +139,7 @@ document.getElementById("stand").addEventListener("click", function(){
 
     if (dscore < 17){
         do{
+            var random = Math.floor(Math.random()* (card.length));
             var img = document.createElement("img");
             img.src = cardImg[random];
             var pcards = document.getElementById("dcards");
