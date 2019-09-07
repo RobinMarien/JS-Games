@@ -142,16 +142,18 @@ document.getElementById("stand").addEventListener("click", function(){
             var random = Math.floor(Math.random()* (card.length));
             var img = document.createElement("img");
             img.src = cardImg[random];
-            var pcards = document.getElementById("dcards");
-            pcards.appendChild(img);
+            var dcards = document.getElementById("dcards");
+            dcards.appendChild(img);
 
             dscore = dscore + card[random];
             document.getElementById("dscore").innerText = dscore;
         }
         while(dscore <= 17);
     }
-
-    if (pscore > dscore && dscore < 21){
+    if (dscore > 21){
+        document.getElementById("result").innerText = "You won!";
+    }
+    else if (pscore > dscore){
         document.getElementById("result").innerText = "You won!";
     }
     else if (pscore == dscore && dscore <= 21){
