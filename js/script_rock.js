@@ -23,15 +23,15 @@ weapons.forEach((weapon) => {
 
         playerImg.setAttribute("src", "./img/rock/"+choice+".png");
 
-        if (comp < 0.30){
+        if (comp < 0.32){
             comp = "rock";
             compImg.setAttribute("class", "imgflip");
         }
-        else if (comp < 0.60) {
+        else if (comp < 0.64) {
             comp = "paper";
             compImg.setAttribute("class", "imgflip");
         }
-        else if (comp < 0.90){
+        else if (comp < 0.96){
             comp = "scissors";
             compImg.setAttribute("class", "imgflip");
         }
