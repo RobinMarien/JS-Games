@@ -15,6 +15,15 @@ main{
     width: 100%;
 }
 
+@keyframes move {
+    from {
+        background-position: 100vw 100%;
+    }
+    to {
+        background-position: 1vw 100%;
+    }
+}
+
 .container{
     padding-top: 60px;
 }
@@ -71,11 +80,9 @@ button{
     margin-bottom: 20px;
 }
 
-@keyframes move {
-    from {
-        background-position: 100vw 100%;
-    }
-    to {
-        background-position: 1vw 100%;
-    }
+#home{
+    position:fixed;
+    top: 5px;
+    right: 5px;
+    height: 35px;
 }

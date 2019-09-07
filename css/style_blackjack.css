@@ -53,3 +53,10 @@ img{
 p{
     font-weight: bold;
 }
+
+#home{
+    position:fixed;
+    top: 5px;
+    right: 5px;
+    height: 35px;
+}
