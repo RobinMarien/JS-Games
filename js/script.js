@@ -5,8 +5,10 @@ window.onkeydown = function (menu) {
     } else if (keyPr === 98) {
         document.getElementById("blackjack").click();
     } else if (keyPr === 99) {
-        document.getElementById("memory").click();
+        document.getElementById("bricks").click();
     } else if (keyPr === 100) {
-        document.getElementById("block").click();
+        document.getElementById("memory").click();
+    }else if (keyPr === 101) {
+        document.getElementById("memory").click();
     }
 };

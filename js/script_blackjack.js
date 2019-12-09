@@ -2,10 +2,8 @@
 var A = 11;
 var J = Q = K = 10;
 
-var card = [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K,
-            A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K,
-            A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K,
-            A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K];
+var card = [A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K];
+card = card.concat(card).concat(card).concat(card);
 
 var cardImg = [
             "img/blackjack/clubs1.png",
@@ -138,6 +136,25 @@ document.getElementById("stand").addEventListener("click", function(){
     document.getElementById("dscore").innerText = dscore;
 
     if (dscore < 17){
+        /*
+        function pcDoesMove() {
+            var random = Math.floor(Math.random()* (card.length));
+            var img = document.createElement("img");
+            img.src = cardImg[random];
+            var dcards = document.getElementById("dcards");
+            dcards.appendChild(img);
+
+            dscore = dscore + card[random];
+            document.getElementById("dscore").innerText = dscore;
+
+            if(dscore <= 17) {
+                setTimeout(pcDoesMove, 3000);
+            }
+        }
+
+        setTimeout(pcDoesMove, 3000);
+        */
+
         do{
             var random = Math.floor(Math.random()* (card.length));
             var img = document.createElement("img");

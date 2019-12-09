@@ -8,9 +8,11 @@ if (window.localStorage.getItem("computer_score") == undefined || window.localSt
     document.getElementById("cscore").innerText = "0";
 };
 
-var weapons = document.getElementById("buttongroup").querySelectorAll("button");
+//var weapons = document.getElementById("buttongroup").querySelectorAll("button");
+const RADIX = 10;
+const SCISSORS = "scissors";
 
-weapons.forEach((weapon) => {
+document.querySelectorAll("#buttongroup button").forEach((weapon) => {
     weapon.addEventListener('click', () => {
 
         var choice = weapon.getAttribute("id");
@@ -18,8 +20,8 @@ weapons.forEach((weapon) => {
         var playerImg = document.getElementById("choice");
         var compImg = document.getElementById("computer");
         var result = document.getElementById("result");
-        var pscore = parseInt(document.getElementById("pscore").innerHTML,10);
-        var cscore = parseInt(document.getElementById("cscore").innerHTML,10)
+        var pscore = parseInt(document.getElementById("pscore").innerHTML,RADIX);
+        var cscore = parseInt(document.getElementById("cscore").innerHTML,RADIX)
 
         playerImg.setAttribute("src", "./img/rock/"+choice+".png");
 
@@ -32,7 +34,7 @@ weapons.forEach((weapon) => {
             compImg.setAttribute("class", "imgflip");
         }
         else if (comp < 0.96){
-            comp = "scissors";
+            comp = SCISSORS;
             compImg.setAttribute("class", "imgflip");
         }
         else{
@@ -47,8 +49,10 @@ weapons.forEach((weapon) => {
         if(choice == comp){
             result.innerText = "It's a Draw!"
         }
-        else if (choice == "rock" && comp == "scissors"){
-            result.innerText = "The computer chose Scissors!\nYou win!";
+        else if ((choice == "rock" && comp == SCISSORS)
+            || (choice == "paper" && comp == "rock")
+            || (choice == "scissors" && comp == "paper")){
+            result.innerText = "The computer chose "+ comp +"!\nYou win!";
             pscore++;
             document.getElementById("pscore").innerText= pscore;
         }
@@ -57,20 +61,10 @@ weapons.forEach((weapon) => {
             cscore++;
             document.getElementById("cscore").innerText= cscore;
         }
-        else if (choice == "paper" && comp == "rock"){
-            result.innerText = "The computer chose Rock!\nYou win!";
-            pscore++;
-            document.getElementById("pscore").innerText= pscore;
-        }
-        else if (choice == "paper" && comp == "scissors"){
+        else if (choice == "paper" && comp == SCISSORS){
             result.innerText = "The computer chose Scissors!\nYou lose!";
             cscore++;
             document.getElementById("cscore").innerText= cscore;
-        }
-        else if (choice == "scissors" && comp == "paper"){
-            result.innerText = "The computer chose Paper!\nYou win!";
-            pscore++;
-            document.getElementById("pscore").innerText= pscore;
         }
         else if (choice == "scissors" && comp == "rock"){
             result.innerText = "The computer chose Rock!\nYou lose!";
@@ -79,16 +73,12 @@ weapons.forEach((weapon) => {
         }
         else{
             result.innerText = "Aww shit, the computer chose THE Rock!!!\nYou can't beat him.. and he demands 3 points!";
-            pscore -= 3;
+            pscore = Math.max(pscore - 3, 0);
             cscore += 3;
             document.getElementById("pscore").innerText= pscore;
             document.getElementById("cscore").innerText= cscore;
         }
 
-        if (pscore <= 0){
-            pscore = 0;
-            document.getElementById("pscore").innerText= pscore;
-        }
         window.localStorage.setItem('computer_score', JSON.stringify(cscore));
         window.localStorage.setItem('player_score', JSON.stringify(pscore));
     });
