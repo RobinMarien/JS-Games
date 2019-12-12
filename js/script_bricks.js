@@ -65,7 +65,7 @@ function collisionDetection() {
         for(var r=0; r<brickRowCount; r++) {
             var b = bricks[c][r];
             if(b.status == 1) {
-                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight+7) {
                     dy = -dy;
                     b.status = 0;
                     score = score + 10;
