@@ -7,8 +7,10 @@ window.onkeydown = function (menu) {
     } else if (keyPr === 99) {
         document.getElementById("bricks").click();
     } else if (keyPr === 100) {
-        document.getElementById("memory").click();
+        document.getElementById("brick2").click();
     }else if (keyPr === 101) {
         document.getElementById("memory").click();
+    }else if (keyPr === 102) {
+        document.getElementById("blocks").click();
     }
 };
